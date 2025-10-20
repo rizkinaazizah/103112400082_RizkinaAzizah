@@ -1,6 +1,8 @@
 # <h1 align="center">Laporan Praktikum Modul 4 - SINGLE LINKED LIST (Bagian Pertama)</h1>
 <p align="center">Rizkina Azizah - 103112400082</p>
 
+<p align="justify">
+
 ## Dasar Teori
 Pengertian Linked List
    Salah satu bentuk struktur data yang berisi kumpulan data yang tersusun secara
@@ -36,6 +38,9 @@ Operasi-operasi Linked List
     anda ingin mengakhiri program yang menggunakan linked list. Jika anda
     melakukannya, data-data yang dialokasikan ke memori pada program sebelumnya
     akan tetap tertinggal di dalam memori. [1]
+
+</p>
+
 ### A. Guided<br/>
 ...
 #### 1. Guided1-Hello
