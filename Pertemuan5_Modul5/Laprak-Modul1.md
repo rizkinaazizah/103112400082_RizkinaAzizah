@@ -20,13 +20,12 @@ diinginkan, yang memiliki kompleksitas waktu o (n) [1]
 ### A. Guided<br/>
 ...
 #### 1. Guided1
-#### 2. Guided2-aritmatika
+#### 2. Guided2
 
 ### B. Unguided<br/>
 ...
 #### 1. Unguided 1
 #### 2. Unguided 2
-#### 3. Unguided 3
 
 ## Guided 
 
@@ -567,7 +566,7 @@ int main() {
 ### Output Unguided 1 :
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan1_Modul1/Unguided11_Modul1.png)
+![Screenshot Output Unguided 1_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan5_Modul5/Unguided1/output-unguided1.png)
 
 Penjelasan unguided 1
 Program ini merupakan implementasi algoritma Binary Search pada Linked List menggunakan bahasa C++. Program membuat linked list dengan menambahkan elemen di akhir melalui fungsi append(), lalu melakukan pencarian elemen menggunakan fungsi binarySearch(). Fungsi ini menentukan ukuran list, mencari elemen tengah (mid), dan membandingkan nilainya dengan data yang dicari. Jika cocok, program mengembalikan alamat node tersebut; jika tidak, pencarian dilanjutkan ke bagian kiri atau kanan list hingga data ditemukan atau seluruh node diperiksa.
@@ -674,16 +673,15 @@ int main() {
 ```
 ### Output Unguided 2 :
 
-##### Output 1
-![Screenshot Output Unguided 2_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan1_Modul1/Unguided21_Modul1.png)
+##### Output 
+![Screenshot Output Unguided 2_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan5_Modul5/Unguided2/output-unguided2.png)
 
 penjelasan unguided 2
 Program ini merupakan implementasi Linear Search pada Linked List menggunakan C++. Program ini membuat struktur Node untuk menyimpan data dan pointer ke node berikutnya. Fungsi append() digunakan untuk menambahkan node baru di akhir list, sedangkan printList() menampilkan isi list secara berurutan. Fungsi utama linearSearch() menelusuri setiap node dari awal hingga akhir untuk mencari nilai tertentu (key), sambil menampilkan proses pengecekan pada setiap langkah.
 
 ## Kesimpulan
-Dari program program diatas dapat disimpulkan bahwa bahasa C++ dalam tipe data hampir sama saja dengan bahasa pemrograman lainnya, baik dari segi struktur maupun logika. Misalnya, penggunaan variabel, operator, serta struktur kontrol seperti if-else, switch case, dan perulangan (for, while, do-while). Hal ini membuat C++ relatif mudah dipahami oleh pemula yang sudah mengenal bahasa lain, karena konsep dasarnya tetap sama yaitu menerima input, mengolah data, dan menampilkan output sesuai kebutuhan.
+Dari program program diatas dapat disimpulkan bahwa semua program menunjukkan cara kerja dasar struktur data Linked List dalam berbagai operasi penting, seperti menambah node (append/insert), menghapus dan memperbarui data, serta mencari elemen menggunakan Linear Search dan Binary Search.
+Masing-masing program membantu memahami bagaimana node saling terhubung melalui pointer, bagaimana data diolah secara dinamis di memori, serta bagaimana algoritma pencarian dan manipulasi list dijalankan langkah demi langkah. Secara keseluruhan, program-program ini melatih logika dalam pengelolaan data terstruktur secara manual tanpa menggunakan array statis.
 
 ## Referensi
-[1] Ma’arif, A. (2022). Dasar Pemrograman Bahasa C++. Yogyakarta: Universitas Ahmad Dahlan.
-
-<br>[2] Institut Teknologi Telkom Purwokerto. (n.d.). Modul 1: Codeblocks IDE & Pengenalan Bahasa C++ (Bagian Pertama). Purwokerto: Institut Teknologi Telkom Purwokerto.
+[1] Setiyawan, R. D., Hermawan, D., Abdillah, A. F., Mujayanah, A., & Vindua, R. (2024). Penggunaan struktur data stack dalam pemrograman C++ dengan pendekatan array dan linked list. Volume 5, Nomor 2, Desember 2024, 484. Fakultas Ilmu Komputer, Universitas Pamulang.
