@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 1 - Codeblocks IDE & Pengenalan Bahas C++ (Bagian Pertama)</h1>
+# <h1 align="center">Laporan Praktikum Modul 6 - DOUBLY LINKED LIST (BAGIANPERTAMA)</h1>
 <p align="center">Rizkina Azizah - 103112400082</p>
 
 ## Dasar Teori
