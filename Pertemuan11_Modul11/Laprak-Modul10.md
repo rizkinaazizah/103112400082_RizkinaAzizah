@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 10 - TREE (BAGIAN PERTAMA)</h1>
+# <h1 align="center">Laporan Praktikum Modul 11 - Multi_Linked List </h1>
 <p align="center">Rizkina Azizah - 103112400082</p>
 
 ## Dasar Teori
