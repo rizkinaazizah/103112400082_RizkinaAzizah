@@ -1,16 +1,15 @@
-#include <iostream>
 #include "pelajaran.h"
+#include <iostream>
 using namespace std;
 
-//realisasi dari fungsi inputmhs
-void tampilpelajaran(pelajaran &p);{
-    cout << "Nama Mata Pelajaran ";
-    cin >> p.namaMapel;
-    cout << "Kode Mata Pelajaran ";
-    cin >> p.kodeMapel;
+pelajaran create_pelajaran(string namaPel, string kodePel) {
+    pelajaran p;
+    p.namaPel = namaPel;
+    p.kodePel = kodePel;
+    return p;
 }
 
-//realisasi dari fungsi rata2
-string  createpejaran(string namaMapel, string kodeMapel){
-    return pelajaran;
+void tampil_pelajaran(const pelajaran& p) {
+    cout << "nama pelajaran : " << p.namaPel << endl;
+    cout << "nilai : " << p.kodePel << endl;
 }

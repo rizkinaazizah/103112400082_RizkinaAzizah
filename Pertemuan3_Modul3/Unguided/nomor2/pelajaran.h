@@ -1,15 +1,15 @@
 #ifndef PELAJARAN_H
 #define PELAJARAN_H
+
 #include <string>
 using namespace std;
 
-
-struct pelajaran{
-    string namaMapel;
-    string kodeMapel;
+struct pelajaran {
+    string namaPel;
+    string kodePel;
 };
 
-string  createpejaran(string namaMapel, string kodeMapel);
-void tampilpelajaran(pelajaran &p);
+pelajaran create_pelajaran(string namaPel, string kodePel);
+void tampil_pelajaran(const pelajaran& p);
 
-#endif 
+#endif

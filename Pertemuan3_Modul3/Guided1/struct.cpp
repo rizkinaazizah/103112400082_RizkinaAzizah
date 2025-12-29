@@ -1,8 +1,11 @@
 #include <iostream>
-#include "mahasiswa.h"
 using namespace std;
 
-//realisasi dari fungsi inputmhs
+struct mahasiswa {
+    char nim[10];
+    float nilai1, nilai2;
+};
+
 void inputMhs(mahasiswa &m){
     cout << "Masukkan NIM: ";
     cin >> m.nim;
@@ -12,7 +15,18 @@ void inputMhs(mahasiswa &m){
     cin >> m.nilai2;
 }
 
-//realisasi dari fungsi rata2
 float rata2(mahasiswa m){
     return(float)(m.nilai1 + m.nilai2) / 2;
+}
+
+int main(){
+    mahasiswa mhs;
+
+    inputMhs(mhs);
+
+    cout << "Rata-rata nilai adalah :" << rata2(mhs) << endl;
+
+    system("read -p 'Press Enter to continue...' var");
+
+    return 0;
 }
