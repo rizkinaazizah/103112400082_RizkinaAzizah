@@ -38,8 +38,6 @@ Kerugian dari Doubly Linked List
 ### B. Unguided<br/>
 ...
 #### 1. Unguided 1
-#### 2. Unguided 2
-#### 3. Unguided 3
 
 ## Guided 
 
@@ -542,125 +540,225 @@ Program dibuat untuk menampilkan aritmatika ketika user memasukkan 2 angka progr
 ## Unguided 
 
 ### 1. Unguided 1
-BUatlah program yang menerima input-an dua buah bilangan bertipe float, kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut
+#### Doublylist.cpp
 ```C++
 source code unguided 1
-#include <iostream>
+#include "Doublylist.h"
 
-using namespace std;
+void createList(List &L) {
+    L.first = nullptr;
+    L.last = nullptr;
+}
 
-int main(){
-    float angka1, angka2, penjumlahan, pengurangan, perkalian, pembagian;
-    cout << "Masukkan Angka 1: ";
-    cin >> angka1;
-    cout << "Masukkan Angka 2: ";
-    cin >> angka2;
+address alokasi(infotype x) {
+    address P = new ElmList;
+    P->info = x;
+    P->next = nullptr;
+    P->prev = nullptr;
+    return P;
+}
 
-    penjumlahan = angka1 + angka2;
-    pengurangan = angka1 - angka2;
-    perkalian = angka1*angka2;
-    pembagian = angka1/angka2;
+void dealokasi(address &P) {
+    delete P;
+    P = nullptr;
+}
 
-    cout<<"Penjumlahan: "<< penjumlahan <<endl;
-    cout<<"Pengurangan: "<< pengurangan <<endl;
-    cout<<"Perkalian: "<< perkalian <<endl;
-    cout<<"Pembagian: "<< pembagian <<endl;
+void insertLast(List &L, address P) {
+    if (L.first == nullptr) {
+        L.first = P;
+        L.last = P;
+    } else {
+        L.last->next = P;
+        P->prev = L.last;
+        L.last = P;
+    }
+}
 
+void printInfo(List L) {
+    address P = L.last; // cetak dari belakang biar sesuai contoh output
+    cout << "\nDATA LIST 1\n";
+    while (P != nullptr) {
+        cout << "\nno polisi : " << P->info.nopol
+             << "\nwarna     : " << P->info.warna
+             << "\ntahun     : " << P->info.thnBuat << endl;
+        P = P->prev;
+    }
+}
+
+address findElm(List L, string nopol) {
+    address P = L.first;
+    while (P != nullptr) {
+        if (P->info.nopol == nopol)
+            return P;
+        P = P->next;
+    }
+    return nullptr;
+}
+
+void deleteFirst(List &L, address &P) {
+    if (L.first == nullptr)
+        P = nullptr;
+    else if (L.first == L.last) {
+        P = L.first;
+        L.first = nullptr;
+        L.last = nullptr;
+    } else {
+        P = L.first;
+        L.first = L.first->next;
+        L.first->prev = nullptr;
+        P->next = nullptr;
+    }
+}
+
+void deleteLast(List &L, address &P) {
+    if (L.first == nullptr)
+        P = nullptr;
+    else if (L.first == L.last) {
+        P = L.last;
+        L.first = nullptr;
+        L.last = nullptr;
+    } else {
+        P = L.last;
+        L.last = L.last->prev;
+        L.last->next = nullptr;
+        P->prev = nullptr;
+    }
+}
+
+void deleteAfter(address Prec, address &P) {
+    if (Prec == nullptr || Prec->next == nullptr)
+        P = nullptr;
+    else {
+        P = Prec->next;
+        Prec->next = P->next;
+        if (P->next != nullptr)
+            P->next->prev = Prec;
+        P->next = nullptr;
+        P->prev = nullptr;
+    }
 }
 
 ```
-### Output Unguided 1 :
-
-##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan1_Modul1/Unguided11_Modul1.png)
-
-Jadi, program ini adalah program yang menerima inputan angka bertipe float kemudian memberikan output-an hasil penjumlahan, pengurangan, perkalian, dan pembagian dari dua bilangan tersebut
-
-### 2. Unguided 2
-Buatlah program yang menerima masukan angka dan mengeluarkan output nilai angka tersebut dalam bentuk tulisan. Angka yang akan diinputkan user adalah bilangan bulat positif mulai dari 0 s.d 100
-
+#### Doublylist.h
 ```C++
-source code unguided 2
+#ifndef DOUBLYLIST_H
+#define DOUBLYLIST_H
 #include <iostream>
+#include <string>
 using namespace std;
+
+struct kendaraan {
+    string nopol;
+    string warna;
+    int thnBuat;
+};
+
+typedef kendaraan infotype;
+
+struct ElmList {
+    infotype info;
+    ElmList *next;
+    ElmList *prev;
+};
+
+typedef ElmList* address;
+
+struct List {
+    address first;
+    address last;
+};
+
+void createList(List &L);
+address alokasi(infotype x);
+void dealokasi(address &P);
+void insertLast(List &L, address P);
+void printInfo(List L);
+address findElm(List L, string nopol);
+void deleteFirst(List &L, address &P);
+void deleteLast(List &L, address &P);
+void deleteAfter(address Prec, address &P);
+
+#endif
+```
+#### main.cpp
+```C++
+#include "Doublylist.h"
 
 int main() {
-    string huruf[101] = {
-        "nol", "hurufsatu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan",
-        "sepuluh", "sebelas", "dua belas", "tiga belas", "empat belas", "lima belas", "enam belas", "tujuh belas", "delapan belas", "sembilan belas",
-        "dua puluh", "dua puluh satu", "dua puluh dua", "dua puluh tiga", "dua puluh empat", "dua puluh lima", "dua puluh enam", "dua puluh tujuh", "dua puluh delapan", "dua puluh sembilan",
-        "tiga puluh", "tiga puluh satu", "tiga puluh dua", "tiga puluh tiga", "tiga puluh empat", "tiga puluh lima", "tiga puluh enam", "tiga puluh tujuh", "tiga puluh delapan", "tiga puluh sembilan",
-        "empat puluh", "empat puluh satu", "empat puluh dua", "empat puluh tiga", "empat puluh empat", "empat puluh lima", "empat puluh enam", "empat puluh tujuh", "empat puluh delapan", "empat puluh sembilan",
-        "lima puluh", "lima puluh satu", "lima puluh dua", "lima puluh tiga", "lima puluh empat", "lima puluh lima", "lima puluh enam", "lima puluh tujuh", "lima puluh delapan", "lima puluh sembilan",
-        "enam puluh", "enam puluh satu", "enam puluh dua", "enam puluh tiga", "enam puluh empat", "enam puluh lima", "enam puluh enam", "enam puluh tujuh", "enam puluh delapan", "enam puluh sembilan",
-        "tujuh puluh", "tujuh puluh satu", "tujuh puluh dua", "tujuh puluh tiga", "tujuh puluh empat", "tujuh puluh lima", "tujuh puluh enam", "tujuh puluh tujuh", "tujuh puluh delapan", "tujuh puluh sembilan",
-        "delapan puluh", "delapan puluh satu", "delapan puluh dua", "delapan puluh tiga", "delapan puluh empat", "delapan puluh lima", "delapan puluh enam", "delapan puluh tujuh", "delapan puluh delapan", "delapan puluh sembilan",
-        "sembilan puluh", "sembilan puluh satu", "sembilan puluh dua", "sembilan puluh tiga", "sembilan puluh empat", "sembilan puluh lima", "sembilan puluh enam", "sembilan puluh tujuh", "sembilan puluh delapan", "sembilan puluh sembilan", "seratus"
-    };
+    List L;
+    createList(L);
 
-    int angka;
-    cout << "Masukkan angka (0 - 100): ";
-    cin >> angka;
+    char lagi;
+    do {
+        infotype data;
+        cout << "\nmasukkan nomor polisi: ";
+        cin >> data.nopol;
 
-    cout << angka << ":" << huruf[angka] << endl;
+        if (findElm(L, data.nopol) != nullptr) {
+            cout << "nomor polisi sudah terdaftar\n";
+        } else {
+            cout << "masukkan warna kendaraan: ";
+            cin >> data.warna;
+            cout << "masukkan tahun kendaraan: ";
+            cin >> data.thnBuat;
 
+            address P = alokasi(data);
+            insertLast(L, P);
+        }
+
+        cout << "tambah data lagi? (y/n): ";
+        cin >> lagi;
+    } while (lagi == 'y' || lagi == 'Y');
+
+    printInfo(L);
+
+    cout << "\nMasukkan Nomor Polisi yang dicari: ";
+    string cari;
+    cin >> cari;
+    address found = findElm(L, cari);
+    if (found != nullptr) {
+        cout << "\nnomor Polisi : " << found->info.nopol
+             << "\nwarna        : " << found->info.warna
+             << "\ntahun        : " << found->info.thnBuat << endl;
+    } else {
+        cout << "Data tidak ditemukan.\n";
+    }
+
+    cout << "\nMasukkan Nomor Polisi yang akan dihapus: ";
+    string hapus;
+    cin >> hapus;
+    address target = findElm(L, hapus);
+
+    if (target == nullptr) {
+        cout << "Data tidak ditemukan.\n";
+    } else {
+        address P;
+        if (target == L.first)
+            deleteFirst(L, P);
+        else if (target == L.last)
+            deleteLast(L, P);
+        else
+            deleteAfter(target->prev, P);
+
+        cout << "Data dengan nomor polisi " << hapus << " berhasil dihapus.\n";
+        dealokasi(P);
+    }
+
+    printInfo(L);
     return 0;
 }
-
 ```
-### Output Unguided 2 :
+### Output Unguided1 :
 
 ##### Output 1
-![Screenshot Output Unguided 2_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan1_Modul1/Unguided21_Modul1.png)
+![Screenshot Output Unguided 1_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan6_Modul6/Unguided1/output1.png)
+![Screenshot Output Unguided 1_2](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan6_Modul6/Unguided1/output2.png)
 
-penjelasan unguided 2
-Program adalah program yang menerima masukan angka dan mengeluarkan output nilai angka tersebut dalam bentuk tulisan. Program diatas dibuat dengan menggunakan array.
-
-### 3. Unguided 3
-Berikan program yang dapat memberikan input dan output sbb
-321*123
- 21*12
-  1*1
-   *
-
-```C++
-source code unguided 3
-#include <iostream>
-
-using namespace std;
-
-int main(){
-	int tinggi = 3;
-	
-	for (int i = tinggi; i >=0; i--){
-		for (int j = 0; j < tinggi-i; j++) {
-			cout <<" ";
-		}
-		for(int s=i;s>=1;s--){
-			cout<<s;
-		}
-		cout << "*";
-
-		for(int s=1; s<=i; s++){
-			cout<<s;
-			}
-		cout<< endl;
-			
-	}
-	}
-	
-
-```
-### Output Unguided 3 :
-
-##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/rizkinaazizah/103112400082_RizkinaAzizah/blob/main/Pertemuan1_Modul1/Unguided31_Modul1.png)
-
-penjelasan unguided 3
-Program diatas adalah program yang ketika dijalankan langsung mengeluarkan output. Program menggunakan peneran perulangan for
+penjelasan unguided 
+Program ini mengimplementasikan struktur data Doubly Linked List untuk menyimpan data kendaraan, yang setiap node-nya berisi informasi nomor polisi, warna, dan tahun pembuatan. List memiliki pointer first dan last sehingga data dapat diakses dari depan maupun belakang. Disediakan operasi dasar seperti inisialisasi list, alokasi dan dealokasi node, penambahan data di akhir list, pencetakan data dari belakang, pencarian elemen berdasarkan nomor polisi, serta penghapusan node di awal, di akhir, dan setelah node tertentu.
 
 ## Kesimpulan
-Dari program program diatas dapat disimpulkan bahwa bahasa C++ dalam tipe data hampir sama saja dengan bahasa pemrograman lainnya, baik dari segi struktur maupun logika. Misalnya, penggunaan variabel, operator, serta struktur kontrol seperti if-else, switch case, dan perulangan (for, while, do-while). Hal ini membuat C++ relatif mudah dipahami oleh pemula yang sudah mengenal bahasa lain, karena konsep dasarnya tetap sama yaitu menerima input, mengolah data, dan menampilkan output sesuai kebutuhan.
+Doubly Linked List merupakan struktur data linear yang setiap node-nya memiliki dua pointer, yaitu next dan prev, sehingga memungkinkan penelusuran data secara dua arah (maju dan mundur). Struktur ini mempermudah operasi penambahan dan penghapusan data di awal, tengah, maupun akhir list tanpa harus melakukan traversal dari awal setiap saat. Meskipun membutuhkan memori lebih besar dibandingkan singly linked list karena adanya pointer tambahan, doubly linked list lebih fleksibel dan efisien untuk pengelolaan data yang sering mengalami perubahan posisi.
 
 ## Referensi
 [1] Ma’arif, A. (2022). Dasar Pemrograman Bahasa C++. Yogyakarta: Universitas Ahmad Dahlan.
